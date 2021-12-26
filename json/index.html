@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // json là 1 định dạng dữ liệu (chuỗi)
+        // JavaScript Object Notation
+        // JSON Number, Array, Object
+        var json = "['JS', 'JSON1', 'JSON2', 'JSON3', 'JSON4']";
+
+        // Promise
+
+        // ---sync / async
+        // setTimeout, setInterval, fetch, XMLHtmlRequest, file reading, request animation frame
+        // Callback xử lý bất đồng bộ
+
+        // Callback hell dữ liệu ràng buộc với nhau
+        // Pyramid of doom
+
+        // 1 new Promise
+        // 2. 
+
+        // 3 trạng thái Promise Pending - Fulfilled - Rejected
+        // var promise = new Promise(
+        //     // Executor
+        //     function (resolve, reject) {
+        //         // logic
+        //         // successful: resolve()
+        //         // fail: reject() 
+        //         // => nếu không có res và rej -> memory leak (rò rỉ bộ nhớ)
+        //         // resolve([
+        //         //     {
+        //         //         id: 1,
+        //         //         name: "JS"
+        //         //     }
+        //         // ]);
+        //         // reject('Error')
+        //         resolve();
+        //     }
+        // )
+
+        // promise
+        //     .then(function () {
+        //         // console.log(course);
+        //         return new Promise(function (resolve) {
+        //             setTimeout(resolve, 3000);
+        //         });
+        //         // vẫn phải đợi xong 3s mới chạy
+        //     })
+        //     .then(function (data) {
+        //         console.log(data);
+        //         return 2;
+        //     })
+        //     .then(function (data) {
+        //         console.log(data);
+        //         return 3;
+        //     })
+        //     .then(function (data) {
+        //         console.log(data);
+
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        //     .finally(function () {
+        //         console.log("Done!");
+        //     })
+
+        // Lý thuyết, cách hoạt động
+        // function sleep() {
+        //     return new Promise(function (resolve) {
+        //         setTimeout(resolve, ms);
+        //     })
+        // }
+        // sleep(1000)
+        //     .then(function () {
+        //         console.log("1");
+        //         return sleep(1000);
+        //     })
+        //     .then(function () {
+        //         console.log("2");
+        //         return new Promise(function (resolve, reject) {
+        //             reject('Error!');
+        //         })
+        //     })
+        //     .then(function () {
+        //         console.log("3");
+        //         return sleep(1000);
+        //     })
+        //     .then(function () {
+        //         console.log("4");
+        //         return sleep(1000);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+
+        // Promise.resolve - Promise.reject - Promise.all
+
+        // var promise = new Promise(function (resolve, reject) {
+        //     // resolve('Success!');
+        //     reject('Failed!'); // => catch
+        // })
+        var promise = Promise.resolve('Ok');
+
+        promise
+            .then(function (result) {
+                console.log(result);
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+
+
+        var promise1 = new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve([1]);
+            }, 2000);
+        });
+        var promise2 = new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve([2, 3]);
+            }, 5000);
+        });
+        // var promise2 = Promise.reject('Error'); ==> catch
+        Promise.all([promise1, promise2])
+            .then(function (result) {
+                var result1 = result[0];
+                var result2 = result[1];
+
+                console.log(result1.concat(result2)); // kết hợp
+            })
+            .catch(function(err) {
+                console.log(err);
+            })
+            // Cách viết ES6 
+            // .then(function ([result1, result2]) {
+            //     console.log(result1.concat(result2)); // kết hợp
+            // })
+    </script>
+</body>
+
+</html>
