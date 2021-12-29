@@ -18,10 +18,11 @@
         // BE -> API ->Fetch -> JSON/XML
         // -> JSON.parse -> JS types
         // -> Render ra giao diện html
-        var postApi = 'https://jsonplaceholder.typicode.com/users';
+        
+        var userApi = 'https://jsonplaceholder.typicode.com/users';
 
         //
-        fetch(postApi)
+        fetch(userApi)
             .then(function (response) {
                 return response.json(); //JSON.parse: JSON -> js types
             })
