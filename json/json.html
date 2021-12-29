@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="users-list">
+        <li></li>
+    </ul>
+    <script>
+        // API (URL)
+        // Cổng giao tiếp giữa các phần mềm
+        // BE -> API ->Fetch -> JSON/XML
+        // -> JSON.parse -> JS types
+        // -> Render ra giao diện html
+        var postApi = 'https://jsonplaceholder.typicode.com/users';
+
+        //
+        fetch(postApi)
+            .then(function (response) {
+                return response.json(); //JSON.parse: JSON -> js types
+            })
+            .then(function (users) {
+                var htmls = users.map(function (user) {
+                    return /*html*/`
+                        <li>
+                            <h2>${user.name}</h2>
+                            <p>${user.email}</p>
+                        </li>
+                    `;
+                    // console.log(user);
+                })
+                // -> trả về 1 mảng tương ứng với số phần tử, nhưng là dạng chuỗi -> join -> map lại 1 cái chuỗi
+                var html = htmls.join('');
+                document.getElementById('users-list').innerHTML = html;
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    </script>
+</body>
+
+</html>
