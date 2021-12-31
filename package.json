@@ -1,0 +1,23 @@
+{
+  "name": "onfe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhnn02/onFE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhnn02/onFE/issues"
+  },
+  "homepage": "https://github.com/anhnn02/onFE#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

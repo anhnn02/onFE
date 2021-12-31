@@ -10,7 +10,6 @@
 
 <body>
     <ul id="users-list">
-        <li></li>
     </ul>
     <script>
         // API (URL)
@@ -22,27 +21,52 @@
         var userApi = 'https://jsonplaceholder.typicode.com/users';
 
         //
-        fetch(userApi)
-            .then(function (response) {
-                return response.json(); //JSON.parse: JSON -> js types
-            })
-            .then(function (users) {
-                var htmls = users.map(function (user) {
-                    return /*html*/`
-                        <li>
-                            <h2>${user.name}</h2>
-                            <p>${user.email}</p>
-                        </li>
-                    `;
-                    // console.log(user);
+        // fetch(userApi)
+        //     .then(function (response) {
+        //         return response.json(); //JSON.parse: JSON -> js types
+        //     })
+        //     .then(function (users) {
+        //         var htmls = users.map(function (user) {
+        //             return /*html*/`
+        //                 <li>
+        //                     <h2>${user.name}</h2>
+        //                     <p>${user.email}</p>
+        //                 </li>
+        //             `;
+        //             // console.log(user);
+        //         })
+        //         // -> trả về 1 mảng tương ứng với số phần tử, nhưng là dạng chuỗi -> join -> map lại 1 cái chuỗi
+        //         var html = htmls.join('');
+        //         document.getElementById('users-list').innerHTML = html;
+        //     })
+        //     .catch(function (err) {
+        //         console.log(err);
+        //     })
+
+            // ---------- json server -------- fake api -------- mock API
+            // https://github.com/typicode/json-server
+            // B1: cài hành
+            // B2: npm init
+            // B3: Cài vào terminal npm i json-server --> vào pk xem
+            // B4: tạo db.json
+            // B5: vào pk.json thêm start vào script "json-server --watch db.json" (vì k cài -g || gõ vào terminal)
+            // B6: chạy npm start sau đó lấy api
+            // CRUD: 4 hành vi
+                // Create: - POST
+                // Read: - GET
+                // Update: - PUT/PATCH
+                // Delete: - DELETE
+            // Postman:  
+            var courseApi = "http://localhost:3000/courses";
+
+            fetch(courseApi)
+                .then(function (response) {
+                    return response.json();
                 })
-                // -> trả về 1 mảng tương ứng với số phần tử, nhưng là dạng chuỗi -> join -> map lại 1 cái chuỗi
-                var html = htmls.join('');
-                document.getElementById('users-list').innerHTML = html;
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
+                .then(function (course) {
+                    console.log(course);
+                })
+            
     </script>
 </body>
 

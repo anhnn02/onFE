@@ -1,0 +1,9 @@
+{
+  "courses": [
+    {
+      "name": "CSS từ Zero đến Hero",
+      "des": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
+      "id": 1
+    }
+  ]
+}
